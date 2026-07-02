@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ProChurn AI — Retention Intelligence for the Enterprise Book | Prowesstics</title>
+<meta name="description" content="ProChurn AI reads the disengagement pattern 10 - 45 days before the customer writes the exit note. 3.5× return, sub-90 day payback. Get your live quote in 60 seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1E1A4E;
+  --ink-dark: #0F0A24;
+  --violet: #6D48F0;
+  --violet-hot: #8B5CF6;
+  --violet-soft: #C7B8FF;
+  --violet-tint: #EDE8FF;
+  --magenta: #EC4899;
+  --sunrise: #F59E0B;
+  --lime: #A3E635;
+  --paper: #FAFAFA;
+  --paper-2: #F4F1FE;
+  --paper-3: #EDE8FF;
+  --hairline: #E5E1F4;
+  --body: #3F3A5A;
+  --slate: #7A749A;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FAFAFA 0%, #F4F1FE 55%, #EDE8FF 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 90% 5%, rgba(236,72,153,0.10) 0%, transparent 40%),
+    radial-gradient(circle at 5% 80%, rgba(109,72,240,0.13) 0%, transparent 45%),
+    radial-gradient(circle at 95% 95%, rgba(245,158,11,0.10) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+a { color: inherit; text-decoration: none; }
+em, .em {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  color: var(--magenta);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.mono {
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-wordmark {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--violet);
+  letter-spacing: -0.02em;
+}
+.brand-dots {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  display: inline-block;
+}
+.dot.violet { background: var(--violet); }
+.dot.magenta { background: var(--magenta); }
+.dot.sunrise { background: var(--sunrise); }
+.version-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--violet) 0%, var(--violet-hot) 100%);
+  padding: 10px 16px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.live-dot {
+  width: 7px; height: 7px;
+  border-radius: 100%;
+  background: var(--lime);
+  display: inline-block;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.hero-left h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 60px;
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+.hero-left p {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--body);
+  max-width: 500px;
+  margin-bottom: 28px;
+}
+.highlight {
+  position: relative;
+  display: inline-block;
+}
+.highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 6px; left: -2px; right: -2px;
+  height: 18px;
+  background: linear-gradient(90deg, rgba(252,165,165,0.55), rgba(253,230,138,0.7));
+  z-index: -1;
+  border-radius: 4px;
+}
+.cta-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 28px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 100px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.btn:hover { transform: translate(-1px, -1px); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--violet) 0%, var(--violet-hot) 100%);
+  color: #FFFFFF;
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.btn-primary:hover { box-shadow: 4px 4px 0 var(--ink); }
+.btn-ghost {
+  background: #FFFFFF;
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.btn-ghost:hover { box-shadow: 4px 4px 0 var(--ink); }
+
+/* Hero right: promise card */
+.promise-card {
+  background: linear-gradient(135deg, #1E1A4E 0%, #2A2568 55%, #4C1D95 100%);
+  border-radius: 24px;
+  padding: 32px;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.promise-card::before {
+  content: "";
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(236,72,153,0.4), transparent 65%);
+  pointer-events: none;
+}
+.promise-card::after {
+  content: "";
+  position: absolute;
+  bottom: -60px; left: -30px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(139,92,246,0.3), transparent 65%);
+  pointer-events: none;
+}
+.promise-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--violet-soft);
+  margin-bottom: 12px;
+  position: relative;
+}
+.promise-num {
+  font-size: 74px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 12px;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.promise-num .x { color: var(--sunrise); font-size: 50px; font-weight: 700; }
+.promise-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #E5E1F4;
+  position: relative;
+}
+.promise-desc strong { color: #FFFFFF; }
+
+/* Stats strip */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 70px;
+}
+.stat {
+  background: #FFFFFF;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 22px 20px;
+}
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 8px;
+}
+.stat-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat-num .unit {
+  color: var(--magenta);
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 2px;
+}
+.stat-note {
+  font-size: 12px;
+  color: var(--body);
+  margin-top: 6px;
+}
+
+/* Calculator CTA card */
+.calc-cta {
+  background: linear-gradient(135deg, #1E1A4E 0%, #2A2568 55%, #4C1D95 100%);
+  border-radius: 24px;
+  padding: 40px;
+  color: #FFFFFF;
+  border: 1.5px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+.calc-cta::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(236,72,153,0.4), transparent 65%);
+  pointer-events: none;
+}
+.calc-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  align-items: center;
+  position: relative;
+}
+.calc-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #FDE68A;
+  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.calc-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: #FFFFFF;
+}
+.calc-title em { color: var(--sunrise); }
+.calc-desc {
+  font-size: 14px;
+  color: #E5E1F4;
+  line-height: 1.55;
+}
+.calc-btn {
+  display: block;
+  background: #FFFFFF;
+  padding: 28px 24px;
+  border-radius: 18px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+.calc-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.calc-btn-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.calc-btn-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+}
+
+/* Contact row */
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px dashed var(--hairline);
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.contact-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+.contact-links a {
+  color: var(--ink);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.contact-links a strong { color: var(--magenta); font-weight: 600; }
+.locations {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.locations span { color: var(--slate); font-weight: 500; }
+
+/* Mobile */
+@media (max-width: 780px) {
+  .wrap { padding: 24px 20px 60px; }
+  .hero { grid-template-columns: 1fr; gap: 32px; margin-bottom: 40px; }
+  .hero-left h1 { font-size: 42px; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 40px; }
+  .calc-inner { grid-template-columns: 1fr; }
+  .calc-title { font-size: 24px; }
+  .calc-cta { padding: 28px; }
+  .contact-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .contact-links { gap: 14px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div>
+      <div class="brand">
+        <span class="brand-wordmark">PROWESSTICS</span>
+      </div>
+      <div class="brand-dots">
+        <span class="dot violet"></span>
+        <span class="dot magenta"></span>
+        <span class="dot sunrise"></span>
+      </div>
+    </div>
+    <div class="version-badge"><span class="live-dot"></span>V2.4 · LIVE IN PRODUCTION</div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-left">
+      <div style="display:inline-flex; align-items:center; gap:8px; margin-bottom:20px; padding:8px 14px; background:#FFFFFF; border:1px solid var(--hairline); border-radius:100px;">
+        <span style="width:8px;height:8px;border-radius:100%;background:var(--violet);display:inline-block;"></span>
+        <span class="mono" style="font-size:11px; font-weight:600; color:var(--ink);">RETENTION INTELLIGENCE PLATFORM</span>
+      </div>
+      <h1>Catch churn <em>before</em><br>it hits <span class="highlight">your books.</span></h1>
+      <p><strong style="color:var(--ink);">ProChurn AI</strong> reads the disengagement pattern 10 - 45 days before the customer writes the exit note, attributes the top 3 drivers with confidence, and routes the save to the channel most likely to close it. Trained on your book. Deployed on your stack.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="./quote/" onclick="return goToCalc(event)">Run my payback →</a>
+        <button type="button" class="btn btn-ghost" onclick="openMailPicker('briefing')">Book a briefing</button>
+      </div>
+    </div>
+    <div class="promise-card">
+      <div class="promise-label">THE PROCHURN PROMISE</div>
+      <div class="promise-num">3.5<span class="x">×</span></div>
+      <div class="promise-desc"><strong>Every dollar invested</strong> returns $3.50 in retained premium + recovered revenue — inside six months. Fast Track under 90 days for warehouse-ready books.</div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">MODEL ACCURACY</div>
+      <div class="stat-num">85<span class="unit">%</span></div>
+      <div class="stat-note">Gradient Boosting, 0.92 ROC AUC</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">POLICIES · LIBERTY</div>
+      <div class="stat-num">62,624</div>
+      <div class="stat-note">Live production deployment</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">RENEWAL LIFT</div>
+      <div class="stat-num">27→38<span class="unit">%</span></div>
+      <div class="stat-note">In one quarter, real numbers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">SIGNAL LEAD TIME</div>
+      <div class="stat-num">10 - 45<span class="unit">d</span></div>
+      <div class="stat-note">Before renewal window closes</div>
+    </div>
+  </div>
+
+  <!-- Calculator CTA -->
+  <div class="calc-cta">
+    <div class="calc-inner">
+      <div>
+        <div class="calc-label">
+          <span style="width:8px; height:8px; border-radius:100%; background:var(--lime); display:inline-block;"></span>
+          LIVE ROI CALCULATOR · 60 SECONDS
+        </div>
+        <div class="calc-title">Get your <em>live quote</em> on your book, in your browser.</div>
+        <div class="calc-desc">Three inputs — data complexity, availability, ingestion cadence. Four outputs — payback window, 12-month value defended, tier fit, 3-year multiplier. No sales call required to see the number.</div>
+      </div>
+      <div>
+        <a href="./quote/" onclick="return goToCalc(event)" class="calc-btn">
+          <div class="calc-btn-title">Run my quote →</div>
+          <div class="calc-btn-url">HARISH-E-G.GITHUB.IO/PROCHURN/QUOTE</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact row -->
+  <div class="contact-row">
+    <div class="contact-links">
+      <a href="mailto:sales@prowesstics.com">
+        <span style="width:6px;height:6px;border-radius:100%;background:var(--sunrise);display:inline-block;"></span>
+        <strong>sales@prowesstics.com</strong>
+      </a>
+      <a href="mailto:contact@prowesstics.com">
+        <span style="width:6px;height:6px;border-radius:100%;background:var(--violet);display:inline-block;"></span>
+        contact@prowesstics.com
+      </a>
+      <a href="tel:+919677887796">
+        <span style="width:6px;height:6px;border-radius:100%;background:var(--magenta);display:inline-block;"></span>
+        +91 96 77 88 77 96
+      </a>
+      <a href="https://prowesstics.com">
+        <span style="width:6px;height:6px;border-radius:100%;background:var(--lime);display:inline-block;"></span>
+        prowesstics.com
+      </a>
+    </div>
+    <div class="locations">PLANO, TX <span>· HQ</span> &nbsp;·&nbsp; CHENNAI <span>· ODC 1</span> &nbsp;·&nbsp; SINGAPORE <span>· ODC 2</span></div>
+  </div>
+
+</div>
+<!-- Mail picker modal (works when default mail client isn't set up) -->
+<div id="mailModal" style="display:none; position:fixed; inset:0; background:rgba(15,10,36,0.6); z-index:1000; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#FFFFFF; border-radius:20px; max-width:520px; width:100%; padding:32px; border:1.5px solid var(--ink); box-shadow:6px 6px 0 var(--ink); position:relative;">
+    <button onclick="closeMailPicker()" style="position:absolute; top:12px; right:12px; background:none; border:none; font-size:22px; cursor:pointer; color:var(--slate); width:32px; height:32px; border-radius:100%; line-height:1;">×</button>
+    <div class="mono" style="font-size:11px; letter-spacing:0.15em; color:var(--violet); font-weight:700; margin-bottom:8px;" id="mailLabel">SEND VIA</div>
+    <h3 style="font-family:'Poppins',sans-serif; font-size:22px; font-weight:700; color:var(--ink); line-height:1.2; margin-bottom:8px;">Choose how you'd like to send</h3>
+    <p style="font-size:13px; color:var(--body); line-height:1.5; margin-bottom:20px;" id="mailSub">The email is already drafted for you with subject and body — just pick where to open it.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+      <button onclick="sendViaGmail()" style="padding:14px 16px; background:#FFFFFF; border:1.5px solid var(--ink); border-radius:12px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; color:var(--ink); cursor:pointer; text-align:left; box-shadow:2px 2px 0 var(--ink);">
+        <div style="color:#EA4335; font-size:11px; font-weight:700; letter-spacing:0.1em; margin-bottom:2px;">GMAIL</div>
+        Open in Gmail compose
+      </button>
+      <button onclick="sendViaOutlook()" style="padding:14px 16px; background:#FFFFFF; border:1.5px solid var(--ink); border-radius:12px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; color:var(--ink); cursor:pointer; text-align:left; box-shadow:2px 2px 0 var(--ink);">
+        <div style="color:#0078D4; font-size:11px; font-weight:700; letter-spacing:0.1em; margin-bottom:2px;">OUTLOOK</div>
+        Open in Outlook Web
+      </button>
+      <button onclick="sendViaMailto()" style="padding:14px 16px; background:#FFFFFF; border:1.5px solid var(--ink); border-radius:12px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; color:var(--ink); cursor:pointer; text-align:left; box-shadow:2px 2px 0 var(--ink);">
+        <div style="color:var(--violet); font-size:11px; font-weight:700; letter-spacing:0.1em; margin-bottom:2px;">MAIL APP</div>
+        Open default mail client
+      </button>
+      <button onclick="copyMailContent()" style="padding:14px 16px; background:linear-gradient(135deg,var(--violet),var(--violet-hot)); border:1.5px solid var(--ink); border-radius:12px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF; cursor:pointer; text-align:left; box-shadow:2px 2px 0 var(--ink);" id="copyBtn">
+        <div style="color:var(--sunrise); font-size:11px; font-weight:700; letter-spacing:0.1em; margin-bottom:2px;">CLIPBOARD</div>
+        Copy email content
+      </button>
+    </div>
+    <details style="margin-top:12px;">
+      <summary style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:var(--slate); cursor:pointer; font-weight:600;">SHOW RAW EMAIL CONTENT</summary>
+      <div style="margin-top:10px; padding:14px; background:var(--paper-2); border-radius:10px; font-family:'JetBrains Mono',monospace; font-size:11px; line-height:1.6; color:var(--body); white-space:pre-wrap; max-height:180px; overflow-y:auto;" id="rawContent"></div>
+    </details>
+  </div>
+</div>
+
+<script>
+// Smart calculator handler — works both standalone (sibling file) and deployed (./quote/ subfolder)
+function goToCalc(e) {
+  if (e) e.preventDefault();
+  var path = window.location.pathname;
+  var target;
+  if (/prochurn-landing\.html$/i.test(path)) {
+    // Standalone preview file — calculator sits next to it as prochurn-quote-calculator.html
+    target = "./prochurn-quote-calculator.html";
+  } else {
+    // Deployed context (or deploy/index.html locally) — calculator lives in quote/ subfolder
+    target = "./quote/index.html";
+  }
+  window.location.href = target;
+  return false;
+}
+
+// Two draft templates
+const DRAFTS = {
+  briefing: {
+    to: "sales@prowesstics.com",
+    cc: "contact@prowesstics.com",
+    subject: "ProChurn AI — Briefing request",
+    body: "Hi Prowesstics team,\n\nI read the ProChurn AI capabilities overview and would like to schedule a 20–30 minute briefing to explore how it could apply to our book.\n\nA little context:\n- Company / industry:\n- Approximate book size (customers or policies):\n- What we're trying to solve:\n\nTimes that work for me:\n-\n\nBest regards,"
+  },
+  pilot: {
+    to: "sales@prowesstics.com",
+    cc: "contact@prowesstics.com",
+    subject: "ProChurn AI — Pilot conversation",
+    body: "Hi Prowesstics team,\n\nI saw the ProChurn AI capabilities brief and would like to explore a two-week pilot on our book.\n\nSome context you may want to know:\n- Industry / vertical:\n- Approximate book size (customers or policies):\n- Current renewal or retention rate:\n- Preferred pilot start window:\n\nHappy to jump on a briefing call at your convenience.\n\nBest regards,"
+  }
+};
+
+let currentDraft = null;
+
+function openMailPicker(type) {
+  currentDraft = DRAFTS[type];
+  document.getElementById("mailLabel").textContent = type === "briefing" ? "BRIEFING REQUEST" : "PILOT CONVERSATION";
+  document.getElementById("rawContent").textContent =
+    "To: " + currentDraft.to + "\n" +
+    "Cc: " + currentDraft.cc + "\n" +
+    "Subject: " + currentDraft.subject + "\n\n" +
+    currentDraft.body;
+  document.getElementById("mailModal").style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeMailPicker() {
+  document.getElementById("mailModal").style.display = "none";
+  document.body.style.overflow = "";
+  const cb = document.getElementById("copyBtn");
+  cb.innerHTML = '<div style="color:var(--sunrise); font-size:11px; font-weight:700; letter-spacing:0.1em; margin-bottom:2px;">CLIPBOARD</div>Copy email content';
+}
+
+function sendViaGmail() {
+  const d = currentDraft;
+  const url = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(d.to)
+    + "&cc=" + encodeURIComponent(d.cc)
+    + "&su=" + encodeURIComponent(d.subject)
+    + "&body=" + encodeURIComponent(d.body);
+  window.open(url, "_blank");
+  closeMailPicker();
+}
+
+function sendViaOutlook() {
+  const d = currentDraft;
+  const url = "https://outlook.office.com/mail/deeplink/compose?to=" + encodeURIComponent(d.to)
+    + "&cc=" + encodeURIComponent(d.cc)
+    + "&subject=" + encodeURIComponent(d.subject)
+    + "&body=" + encodeURIComponent(d.body);
+  window.open(url, "_blank");
+  closeMailPicker();
+}
+
+function sendViaMailto() {
+  const d = currentDraft;
+  const url = "mailto:" + d.to + "?cc=" + encodeURIComponent(d.cc)
+    + "&subject=" + encodeURIComponent(d.subject)
+    + "&body=" + encodeURIComponent(d.body);
+  window.location.href = url;
+  setTimeout(closeMailPicker, 300);
+}
+
+function copyMailContent() {
+  const d = currentDraft;
+  const full = "To: " + d.to + "\nCc: " + d.cc + "\nSubject: " + d.subject + "\n\n" + d.body;
+  navigator.clipboard.writeText(full).then(() => {
+    const cb = document.getElementById("copyBtn");
+    cb.innerHTML = '<div style="color:var(--lime); font-size:11px; font-weight:700; letter-spacing:0.1em; margin-bottom:2px;">✓ COPIED</div>Paste into any mail client';
+  }).catch(() => {
+    alert("Couldn't copy automatically. Please open the 'SHOW RAW EMAIL CONTENT' section below and copy manually.");
+  });
+}
+
+// Close modal on backdrop click
+document.getElementById("mailModal").addEventListener("click", function(e) {
+  if (e.target === this) closeMailPicker();
+});
+// Close on Escape
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape" && document.getElementById("mailModal").style.display === "flex") closeMailPicker();
+});
+</script>
+
+</body>
+</html>
